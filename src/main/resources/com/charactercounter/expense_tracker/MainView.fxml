@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.charactercounter.expense_tracker.MainViewController">
+    <!-- Top navigation bar -->
+    <top>
+        <HBox spacing="10" style="-fx-padding:10; -fx-background-color:#ececec;">
+            <Label text="Expense Tracker Dashboard" style="-fx-font-size:16; -fx-font-weight:bold;"/>
+            <Button text="Add Transaction" fx:id="addTransactionBtn" onAction="#onAddTransactionClick"/>
+            <Button text="View Reports" fx:id="viewReportsBtn"/>
+        </HBox>
+    </top>
+
+    <!-- Center content -->
+    <center>
+        <VBox spacing="10" style="-fx-padding:10;">
+            <Label text="Transactions"/>
+            <TableView fx:id="transactionTable">
+                <columns>
+                    <TableColumn text="Date" fx:id="dateColumn"/>
+                    <TableColumn text="Type" fx:id="typeColumn"/>
+                    <TableColumn text="Category" fx:id="categoryColumn"/>
+                    <TableColumn text="Amount" fx:id="amountColumn"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

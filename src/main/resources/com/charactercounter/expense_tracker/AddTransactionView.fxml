@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="10" style="-fx-padding:20;">
+    <Label text="Add Transaction" style="-fx-font-size:14; -fx-font-weight:bold;"/>
+
+    <HBox spacing="10">
+        <Label text="Amount:"/>
+        <TextField fx:id="amountField"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Date:"/>
+        <TextField fx:id="dateField" promptText="YYYY-MM-DD"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Type:"/>
+        <ChoiceBox fx:id="typeChoice"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Category:"/>
+        <TextField fx:id="categoryField"/>
+    </HBox>
+
+    <Button text="Save" fx:id="saveBtn"/>
+</VBox>
