@@ -10,6 +10,6 @@ module com.charactercounter.expense_tracker {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens com.charactercounter.expense_tracker to javafx.fxml;
-    exports com.charactercounter.expense_tracker;
+    opens com.expense_tracker to javafx.fxml;
+    exports com.expense_tracker;
 }

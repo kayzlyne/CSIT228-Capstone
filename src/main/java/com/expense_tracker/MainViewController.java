@@ -1,4 +1,4 @@
-package com.charactercounter.expense_tracker;
+package com.expense_tracker;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
