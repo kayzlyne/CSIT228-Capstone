@@ -1,0 +1,72 @@
+public class Transaction {
+  private int id;
+  private int userId;
+  private String description;
+  private double amount;
+  private String type;
+  private LocalDateTime date;
+
+   public Transaction(int userId, String description, double amount, String type) {
+    this.userId = userId;
+    this.description = description;
+    this.amount = amount;
+    this.type = type;
+    this.date = LocalDateTime.now();
+    }
+
+  public boolean addTransaction() {
+        String sql = "INSERT INTO transactions (user_id, description, amount, type, date) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            pstmt.setInt(1, this.userId);
+            pstmt.setString(2, this.description);
+            pstmt.setDouble(3, this.amount);
+            pstmt.setString(4, this.type);
+            pstmt.setTimestamp(5, Timestamp.valueOf(this.date));
+
+            int rows = pstmt.executeUpdate();
+
+            if (rows > 0) {
+                ResultSet rs = pstmt.getGeneratedKeys();
+                if (rs.next()) {
+                    this.id = rs.getInt(1);
+                }
+                System.out.println("Transaction added!");
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+  public boolean editTransaction(int transactionId, String newDesc, double newAmount, String newType) {
+          String sql = "UPDATE transactions SET description=?, amount=?, type=? WHERE id=?";
+
+          try (Connection conn = DBConnection.getConnection();
+               PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+              pstmt.setString(1, newDesc);
+              pstmt.setDouble(2, newAmount);
+              pstmt.setString(3, newType);
+              pstmt.setInt(4, transactionId);
+
+              int rows = pstmt.executeUpdate();
+
+              if (rows > 0) {
+                  System.out.println("Transaction updated!");
+                  return true;
+              }
+
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+
+          return false;
+      }
+}
+  
