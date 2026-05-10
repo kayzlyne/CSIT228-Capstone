@@ -1,5 +1,4 @@
 # CSIT228-Capstone
-Week 1 Deliverables
 
 # Project Title
 **CashFlow (Expense Tracker)**
