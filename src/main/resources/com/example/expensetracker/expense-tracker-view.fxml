@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.expensetracker.ExpenseTrackerController"
+           styleClass="app-root">
+    <children>
+        <VBox fx:id="loginPane" alignment="CENTER" maxWidth="440.0" spacing="16.0" styleClass="auth-card">
+            <padding>
+                <Insets bottom="34.0" left="34.0" right="34.0" top="34.0"/>
+            </padding>
+            <children>
+                <Label styleClass="auth-kicker" text="Expense Tracker"/>
+                <Label styleClass="auth-title" text="Log In"/>
+                <Label styleClass="auth-subtitle" text="Access your account with your name and password." wrapText="true"/>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="field-label" text="Name"/>
+                        <TextField fx:id="loginNameField" promptText="Enter name"/>
+                    </children>
+                </VBox>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="field-label" text="Password"/>
+                        <PasswordField fx:id="loginPasswordField" promptText="Enter password"/>
+                    </children>
+                </VBox>
+
+                <Button maxWidth="1.7976931348623157E308" onAction="#handleLogin" styleClass="primary-button" text="Log In"/>
+                <Label fx:id="loginMessageLabel" styleClass="message-label" wrapText="true"/>
+                <Hyperlink onAction="#showRegisterPane" text="Don't have an account? Register"/>
+            </children>
+        </VBox>
+
+        <VBox fx:id="registerPane" alignment="CENTER" maxWidth="520.0" spacing="16.0" styleClass="auth-card" visible="false">
+            <padding>
+                <Insets bottom="34.0" left="34.0" right="34.0" top="34.0"/>
+            </padding>
+            <children>
+                <Label styleClass="auth-kicker" text="Expense Tracker"/>
+                <Label styleClass="auth-title" text="Register"/>
+                <Label styleClass="auth-subtitle" text="Create your account with your name and password, then continue to the tracker dashboard." wrapText="true"/>
+
+                <VBox spacing="8.0">
+                    <children>
+                        <Label styleClass="field-label" text="Name"/>
+                        <TextField fx:id="registerFullNameField" promptText="Roland James O. Salvador"/>
+                    </children>
+                </VBox>
+
+                <HBox spacing="12.0">
+                    <children>
+                        <VBox HBox.hgrow="ALWAYS" spacing="8.0">
+                            <children>
+                                <Label styleClass="field-label" text="Password"/>
+                                <PasswordField fx:id="registerPasswordField" promptText="Password"/>
+                            </children>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS" spacing="8.0">
+                            <children>
+                                <Label styleClass="field-label" text="Confirm Password"/>
+                                <PasswordField fx:id="registerConfirmPasswordField" promptText="Confirm"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <Button maxWidth="1.7976931348623157E308" onAction="#handleRegister" styleClass="primary-button" text="Create Account"/>
+                <Label fx:id="registerMessageLabel" styleClass="message-label" wrapText="true"/>
+                <Hyperlink onAction="#showLoginPane" text="Back to log in"/>
+            </children>
+        </VBox>
+
+        <VBox fx:id="dashboardPane" maxWidth="1240.0" spacing="24.0" styleClass="dashboard-shell" visible="false">
+            <padding>
+                <Insets bottom="26.0" left="28.0" right="28.0" top="26.0"/>
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="top-bar">
+                    <children>
+                        <MenuButton fx:id="profileMenuButton" styleClass="profile-menu" text="Profile">
+                            <items>
+                                <MenuItem onAction="#showEditProfilePane" text="Edit Profile"/>
+                                <MenuItem onAction="#handleLogout" text="Logout"/>
+                            </items>
+                        </MenuButton>
+
+                        <VBox spacing="4.0">
+                            <children>
+                                <Label styleClass="dashboard-eyebrow" text="Expense Tracker"/>
+                                <Label styleClass="dashboard-title" text="Dashboard"/>
+                            </children>
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button onAction="#handleLogout" styleClass="secondary-button" text="Logout"/>
+                    </children>
+                </HBox>
+
+                <StackPane VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox fx:id="dashboardHomePane" spacing="20.0" styleClass="page-surface">
+                            <padding>
+                                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0"/>
+                            </padding>
+                            <children>
+                                <Region VBox.vgrow="ALWAYS"/>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="editProfilePane" spacing="16.0" styleClass="page-surface" visible="false">
+                            <padding>
+                                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0"/>
+                            </padding>
+                            <children>
+                                <Label styleClass="page-title" text="Edit Profile"/>
+                                <Label styleClass="page-subtitle" text="Update the name used by your expense tracker account." wrapText="true"/>
+
+                                <VBox spacing="8.0">
+                                    <children>
+                                        <Label styleClass="field-label" text="Name"/>
+                                        <TextField fx:id="editFullNameField" promptText="Name"/>
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="8.0">
+                                    <children>
+                                        <Label styleClass="field-label" text="Current Password"/>
+                                        <PasswordField fx:id="editCurrentPasswordField" promptText="Current password"/>
+                                    </children>
+                                </VBox>
+
+                                <HBox spacing="12.0">
+                                    <children>
+                                        <VBox HBox.hgrow="ALWAYS" spacing="8.0">
+                                            <children>
+                                                <Label styleClass="field-label" text="New Password"/>
+                                                <PasswordField fx:id="editNewPasswordField" promptText="New password"/>
+                                            </children>
+                                        </VBox>
+                                        <VBox HBox.hgrow="ALWAYS" spacing="8.0">
+                                            <children>
+                                                <Label styleClass="field-label" text="Confirm Password"/>
+                                                <PasswordField fx:id="editConfirmPasswordField" promptText="Confirm new password"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+
+                                <HBox spacing="12.0">
+                                    <children>
+                                        <Button onAction="#handleSaveProfile" styleClass="primary-button" text="Save Changes"/>
+                                        <Button onAction="#showDashboardHome" styleClass="secondary-button" text="Back"/>
+                                    </children>
+                                </HBox>
+
+                                <Label fx:id="editProfileMessageLabel" styleClass="message-label" wrapText="true"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </children>
+        </VBox>
+    </children>
+</StackPane>
