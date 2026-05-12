@@ -1,4 +1,4 @@
-module expense_tracker.oopcapstone {
+module Controllers {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,6 +10,6 @@ module expense_tracker.oopcapstone {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens expense_tracker.oopcapstone to javafx.fxml;
-    exports expense_tracker.oopcapstone;
+    opens Controllers to javafx.fxml;
+    exports Controllers;
 }

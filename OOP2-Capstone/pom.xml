@@ -116,7 +116,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>expense_tracker.oopcapstone/expense_tracker.oopcapstone.Launcher
+                            <mainClass>expense_tracker.oopcapstone/Controllers.Launcher
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
