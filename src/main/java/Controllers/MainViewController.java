@@ -1,62 +1,50 @@
 package Controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 
 public class MainViewController {
 
-    @FXML
-    private Button addTransactionBtn;
+    @FXML private ListView<String> toPayList;
+    @FXML private Label weekBudgetLabel;
+    @FXML private Label monthBudgetLabel;
+    @FXML private Label weekSpentLabel;
+    @FXML private Label monthSpentLabel;
+    @FXML private Label incomeLabel;
+    @FXML private ListView<String> topSpendingList;
+    @FXML private PieChart spendingChart;
+    @FXML private Button addTransactionFab;
 
     @FXML
-    private Button viewReportsBtn;
+    public void initialize() {
+        // Mock data for demonstration
+        toPayList.getItems().addAll("Electricity bill", "Borrowed money from friend");
 
-    @FXML
-    private TableView<?> transactionTable;
+        weekBudgetLabel.setText("Week: ₱300 / ₱500");
+        monthBudgetLabel.setText("Month: ₱1200 / ₱3000");
 
-    @FXML
-    private TableColumn<?, ?> dateColumn;
+        weekSpentLabel.setText("Week: ₱300");
+        monthSpentLabel.setText("Month: ₱700");
 
-    @FXML
-    private TableColumn<?, ?> typeColumn;
+        incomeLabel.setText("₱500");
 
-    @FXML
-    private TableColumn<?, ?> categoryColumn;
+        topSpendingList.getItems().addAll("Food", "Leisure", "Necessities", "Transport");
 
-    @FXML
-    private TableColumn<?, ?> amountColumn;
-
-    @FXML
-    protected void onAddTransactionClick() throws IOException {
-        System.out.println("Add Transaction button clicked!");
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/AddTransactionView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        Stage stage = (Stage) addTransactionBtn.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Add Transaction");
-        stage.show();
+        spendingChart.getData().addAll(
+                new PieChart.Data("Food", 40),
+                new PieChart.Data("Leisure", 25),
+                new PieChart.Data("Necessities", 20),
+                new PieChart.Data("Transport", 15)
+        );
     }
 
     @FXML
-    protected void onViewReportsClick() throws IOException {
-        System.out.println("View Reports button clicked!");
-
-        // Placeholder: load ReportsView.fxml when you create it
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ReportsView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        Stage stage = (Stage) viewReportsBtn.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Reports");
-        stage.show();
+    private void onAddTransactionClick() {
+        System.out.println("Floating + button clicked!");
+        // Load AddTransactionView.fxml or open a dialog
     }
+
 }

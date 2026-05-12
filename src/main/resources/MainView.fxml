@@ -2,27 +2,68 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainViewController">
-    <top>
-        <HBox spacing="10" style="-fx-padding:10; -fx-background-color:#ececec;">
-            <Label text="Expense Tracker Dashboard" style="-fx-font-size:16; -fx-font-weight:bold;"/>
-            <Button text="Add Transaction" fx:id="addTransactionBtn" onAction="#onAddTransactionClick"/>
-            <Button text="View Reports" fx:id="viewReportsBtn"/>
+<?import javafx.geometry.Insets?>
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.MainViewController"
+           style="-fx-background-color:#f5f5dc; -fx-pref-width:400; -fx-pref-height:700;">
+
+    <!-- Main dashboard content -->
+    <VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding:20;">
+        <!-- Header -->
+        <HBox alignment="CENTER" spacing="10" style="-fx-background-color:#8B4513; -fx-padding:10; -fx-background-radius:8;">
+            <Label text="Expense Tracker"
+                   style="-fx-text-fill:white; -fx-font-size:20; -fx-font-weight:bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="👤" fx:id="profileBtn"
+                    style="-fx-background-color:transparent; -fx-text-fill:white; -fx-font-size:16;"/>
         </HBox>
-    </top>
 
-    <center>
-        <VBox spacing="10" style="-fx-padding:10;">
-            <Label text="Transactions"/>
-            <TableView fx:id="transactionTable">
-                <columns>
-                    <TableColumn text="Date" fx:id="dateColumn"/>
-                    <TableColumn text="Type" fx:id="typeColumn"/>
-                    <TableColumn text="Category" fx:id="categoryColumn"/>
-                    <TableColumn text="Amount" fx:id="amountColumn"/>
-                </columns>
-            </TableView>
+        <!-- To Pay Section -->
+        <VBox spacing="5" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-padding:10; -fx-pref-width:350;">
+            <Label text="To Pay:" style="-fx-font-size:16; -fx-font-weight:bold; -fx-text-fill:#4B2E2E;"/>
+            <ListView fx:id="toPayList" prefHeight="80"/>
         </VBox>
-    </center>
-</BorderPane>
+
+        <!-- Budget and Spending Summary -->
+        <HBox spacing="10" alignment="CENTER">
+            <VBox spacing="5" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-padding:10; -fx-pref-width:160;">
+                <Label text="Budget" style="-fx-font-weight:bold; -fx-text-fill:#4B2E2E;"/>
+                <Label fx:id="weekBudgetLabel" text="Week: ₱300 / ₱500" style="-fx-text-fill:#4B2E2E;"/>
+                <Label fx:id="monthBudgetLabel" text="Month: ₱1200 / ₱3000" style="-fx-text-fill:#4B2E2E;"/>
+            </VBox>
+
+            <VBox spacing="5" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-padding:10; -fx-pref-width:160;">
+                <Label text="Spent" style="-fx-font-weight:bold; -fx-text-fill:#4B2E2E;"/>
+                <Label fx:id="weekSpentLabel" text="Week: ₱300" style="-fx-text-fill:#4B2E2E;"/>
+                <Label fx:id="monthSpentLabel" text="Month: ₱700" style="-fx-text-fill:#4B2E2E;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Income Section -->
+        <VBox spacing="5" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-padding:10; -fx-pref-width:350;">
+            <Label text="Income to Budget" style="-fx-font-weight:bold; -fx-text-fill:#4B2E2E;"/>
+            <Label fx:id="incomeLabel" text="₱500" style="-fx-font-size:16; -fx-text-fill:#4B2E2E;"/>
+        </VBox>
+
+        <!-- Top Spending -->
+        <VBox spacing="5" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-padding:10; -fx-pref-width:350;">
+            <Label text="Top Spending:" style="-fx-font-weight:bold; -fx-text-fill:#4B2E2E;"/>
+            <ListView fx:id="topSpendingList" prefHeight="100"/>
+        </VBox>
+
+        <!-- Pie Chart -->
+        <PieChart fx:id="spendingChart" prefHeight="180" prefWidth="300"
+                  style="-fx-border-color:#A0522D; -fx-border-radius:8;"/>
+    </VBox>
+
+    <!-- Floating Action Button -->
+    <Button text="+" fx:id="addTransactionFab" onAction="#onAddTransactionClick"
+            style="-fx-background-color:#8B4513; -fx-text-fill:white; -fx-font-size:24; -fx-font-weight:bold; -fx-background-radius:50%; -fx-pref-width:50; -fx-pref-height:50;"
+            StackPane.alignment="BOTTOM_RIGHT">
+        <StackPane.margin>
+            <Insets bottom="20" right="20"/>
+        </StackPane.margin>
+    </Button>
+
+</StackPane>
