@@ -17,6 +17,6 @@
     <TextField fx:id="categoryField" promptText="Category"
                style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-pref-width:280;"/>
 
-    <Button text="Save" fx:id="saveBtn"
+    <Button text="Save" fx:id="saveBtn" onAction="#onSaveClick"
             style="-fx-background-color:#8B4513; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8; -fx-pref-width:280; -fx-pref-height:40;"/>
 </VBox>

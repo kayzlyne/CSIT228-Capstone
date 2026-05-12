@@ -1,12 +1,12 @@
 package Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 
 import java.io.IOException;
 
@@ -26,6 +26,12 @@ public class AddTransactionController {
 
     @FXML
     private Button saveBtn;
+
+    @FXML
+    public void initialize() {
+        typeChoice.getItems().setAll("Income", "Expense");
+        typeChoice.setValue("Expense");
+    }
 
     @FXML
     protected void onSaveClick() throws IOException {
