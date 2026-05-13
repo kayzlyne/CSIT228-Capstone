@@ -27,3 +27,4 @@
     <Button text="Logout" onAction="#onLogoutClick"
             style="-fx-background-color:#8B0000; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8; -fx-pref-width:280; -fx-pref-height:40;"/>
 </VBox>
+        <!-- -->

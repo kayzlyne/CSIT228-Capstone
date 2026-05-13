@@ -26,3 +26,4 @@
     <Button text="Cancel" onAction="#onCancelClick"
             style="-fx-background-color:#fffaf0; -fx-text-fill:#4B2E2E; -fx-border-color:#A0522D; -fx-font-weight:bold; -fx-background-radius:8; -fx-border-radius:8; -fx-pref-width:280; -fx-pref-height:40;"/>
 </VBox>
+        <!-- -->
