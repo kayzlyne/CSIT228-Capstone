@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0"
+            prefWidth="400.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.CategoryController">
+
+    <children>
+
+        <Label layoutX="30"
+               layoutY="30"
+               text="Category ID" />
+
+        <TextField fx:id="txtCategoryId"
+                   layoutX="150"
+                   layoutY="25"
+                   prefWidth="180" />
+
+        <Label layoutX="30"
+               layoutY="80"
+               text="Category Name" />
+
+        <TextField fx:id="txtCategoryName"
+                   layoutX="150"
+                   layoutY="75"
+                   prefWidth="180" />
+
+        <Label layoutX="30"
+               layoutY="130"
+               text="Description" />
+
+        <TextArea fx:id="txtDescription"
+                  layoutX="150"
+                  layoutY="125"
+                  prefHeight="80"
+                  prefWidth="180" />
+
+        <Button layoutX="70"
+                layoutY="230"
+                text="Save"
+                onAction="#handleSaveCategory" />
+
+        <Button layoutX="170"
+                layoutY="230"
+                text="Edit"
+                onAction="#handleEditCategory" />
+
+        <Button layoutX="270"
+                layoutY="230"
+                text="Clear"
+                onAction="#handleClear" />
+
+    </children>
+</AnchorPane>
