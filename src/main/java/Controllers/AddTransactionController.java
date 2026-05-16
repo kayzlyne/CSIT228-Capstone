@@ -1,5 +1,3 @@
-
-
 package Controllers;
 
 import javafx.fxml.FXML;
@@ -30,6 +28,9 @@ public class AddTransactionController {
     private Button saveBtn;
 
     @FXML
+    private Button backBtn;
+
+    @FXML
     public void initialize() {
         typeChoice.getItems().setAll("Income", "Expense");
         typeChoice.setValue("Expense");
@@ -47,6 +48,17 @@ public class AddTransactionController {
         Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = (Stage) saveBtn.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Expense Tracker Dashboard");
+        stage.show();
+    }
+
+    @FXML
+    protected void onBackClick() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/MainView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage stage = (Stage) backBtn.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Expense Tracker Dashboard");
         stage.show();

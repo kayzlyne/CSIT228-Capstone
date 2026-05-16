@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="Classes.Budget.BudgetController"
+           style="-fx-background-color: #f5f5dc;"
+           prefWidth="400" prefHeight="700">
+
+    <VBox spacing="16"
+          alignment="CENTER"
+          style="-fx-padding: 0 40 0 40;">
+
+        <Label text="Set Budget"
+               style="-fx-font-size: 22px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: #4B2E2E;" />
+
+        <Region prefHeight="10" />
+
+        <TextField fx:id="startDateField"
+                   promptText="Start Date (YYYY-MM-DD)"
+                   style="-fx-background-color: #fdf8ee;
+                          -fx-border-color: #8B4513;
+                          -fx-border-radius: 8;
+                          -fx-background-radius: 8;
+                          -fx-border-width: 1.5;
+                          -fx-padding: 10 14;
+                          -fx-font-size: 13px;
+                          -fx-text-fill: #4B2E2E;
+                          -fx-prompt-text-fill: #b09070;"
+                   maxWidth="Infinity" />
+
+        <TextField fx:id="endDateField"
+                   promptText="End Date (YYYY-MM-DD)"
+                   style="-fx-background-color: #fdf8ee;
+                          -fx-border-color: #8B4513;
+                          -fx-border-radius: 8;
+                          -fx-background-radius: 8;
+                          -fx-border-width: 1.5;
+                          -fx-padding: 10 14;
+                          -fx-font-size: 13px;
+                          -fx-text-fill: #4B2E2E;
+                          -fx-prompt-text-fill: #b09070;"
+                   maxWidth="Infinity" />
+
+        <TextField fx:id="allocationAmountField"
+                   promptText="₱ Amount Limit"
+                   style="-fx-background-color: #fdf8ee;
+                          -fx-border-color: #8B4513;
+                          -fx-border-radius: 8;
+                          -fx-background-radius: 8;
+                          -fx-border-width: 1.5;
+                          -fx-padding: 10 14;
+                          -fx-font-size: 13px;
+                          -fx-text-fill: #4B2E2E;
+                          -fx-prompt-text-fill: #b09070;"
+                   maxWidth="Infinity" />
+
+        <Region prefHeight="10" />
+
+        <Button text="Save"
+                onAction="#handleSave"
+                maxWidth="Infinity"
+                style="-fx-background-color: #8B4513;
+                       -fx-text-fill: white;
+                       -fx-font-size: 14px;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-border-radius: 8;
+                       -fx-padding: 12;
+                       -fx-cursor: hand;" />
+
+        <Button text="Cancel"
+                onAction="#handleCancel"
+                maxWidth="Infinity"
+                style="-fx-background-color: transparent;
+                       -fx-text-fill: #8B4513;
+                       -fx-font-size: 13px;
+                       -fx-font-weight: bold;
+                       -fx-border-color: #8B4513;
+                       -fx-border-radius: 8;
+                       -fx-background-radius: 8;
+                       -fx-border-width: 1.5;
+                       -fx-padding: 10;
+                       -fx-cursor: hand;" />
+
+    </VBox>
+
+</StackPane>

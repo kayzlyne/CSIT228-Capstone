@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.OptionController"
+      alignment="BOTTOM_RIGHT"
+      spacing="8"
+      style="-fx-background-color: transparent; -fx-padding: 10;">
+
+    <Button fx:id="viewReportsBtn"
+            text="📊  View Reports"
+            onAction="#onViewReportsClick"
+            style="-fx-background-color: #4B2E2E; -fx-text-fill: white;
+                   -fx-font-size: 11; -fx-font-weight: bold;
+                   -fx-background-radius: 8; -fx-border-color: white;
+                   -fx-border-radius: 8; -fx-border-width: 1.5;
+                   -fx-pref-width: 150; -fx-pref-height: 32;
+                   -fx-cursor: hand;"/>
+
+    <Button fx:id="categoryBtn"
+            text="🏷️  Category"
+            onAction="#onCategoryClick"
+            style="-fx-background-color: #4B2E2E; -fx-text-fill: white;
+                   -fx-font-size: 11; -fx-font-weight: bold;
+                   -fx-background-radius: 8; -fx-border-color: white;
+                   -fx-border-radius: 8; -fx-border-width: 1.5;
+                   -fx-pref-width: 150; -fx-pref-height: 32;
+                   -fx-cursor: hand;"/>
+
+    <Button fx:id="setBudgetBtn"
+            text="💰  Set Budget"
+            onAction="#onSetBudgetClick"
+            style="-fx-background-color: #4B2E2E; -fx-text-fill: white;
+                   -fx-font-size: 11; -fx-font-weight: bold;
+                   -fx-background-radius: 8; -fx-border-color: white;
+                   -fx-border-radius: 8; -fx-border-width: 1.5;
+                   -fx-pref-width: 150; -fx-pref-height: 32;
+                   -fx-cursor: hand;"/>
+
+    <Button fx:id="addTransactionBtn"
+            text="📝  Add Transaction"
+            onAction="#onAddTransactionClick"
+            style="-fx-background-color: #4B2E2E; -fx-text-fill: white;
+                   -fx-font-size: 11; -fx-font-weight: bold;
+                   -fx-background-radius: 8; -fx-border-color: white;
+                   -fx-border-radius: 8; -fx-border-width: 1.5;
+                   -fx-pref-width: 150; -fx-pref-height: 32;
+                   -fx-cursor: hand;"/>
+
+</VBox>

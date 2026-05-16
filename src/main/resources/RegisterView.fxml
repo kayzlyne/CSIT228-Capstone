@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Users.RegisterController"
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="Classes.User.RegisterController"
       alignment="CENTER" spacing="15"
       style="-fx-background-color:#f5f5dc; -fx-padding:30; -fx-pref-width:400; -fx-pref-height:700;">
     <Label text="Register"
