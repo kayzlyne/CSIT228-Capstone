@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="12" style="-fx-background-color:#f5f5dc; -fx-padding:30 25 30 25; -fx-pref-width:400; -fx-pref-height:700;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.deleteTransController">
+
+    <Label style="-fx-font-size:22; -fx-font-weight:bold; -fx-text-fill:#4B2E2E; -fx-alignment:center; -fx-max-width:Infinity; -fx-padding:0 0 20 0;" text="Delete Transaction" />
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label minWidth="93.0" prefHeight="19.0" prefWidth="93.0" style="-fx-font-size:13; -fx-font-weight:bold; -fx-text-fill:#4B2E2E;" text="Transaction ID" />
+        <TextField fx:id="transactionIdField" prefHeight="39.0" prefWidth="166.0" promptText="Enter ID" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-background-radius:8; -fx-border-width:1.5; -fx-padding:8 12; -fx-font-size:13;" HBox.hgrow="ALWAYS" />
+    </HBox>
+
+
+
+
+
+    <Label prefHeight="16.0" prefWidth="357.0" style="-fx-font-size:11; -fx-text-fill:#7a5c3a; -fx-padding:0 0 0 120;" text="Enter the transaction ID you want to delete." />
+
+    <Button onAction="#onLookupClick" style="-fx-background-color:#c97a2e; -fx-text-fill:white; -fx-font-size:13; -fx-font-weight:bold; -fx-background-radius:8; -fx-border-radius:8; -fx-padding:8 20; -fx-cursor:hand;" text="Look Up" />
+
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+    <Label style="-fx-font-size:13; -fx-font-weight:bold; -fx-text-fill:#4B2E2E;" text="Details:" />
+    </HBox>
+
+
+
+
+    <VBox spacing="6" style="-fx-background-color:#fffaf0; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-background-radius:8; -fx-border-width:1.5; -fx-padding:12;">
+        <Label fx:id="transactionInfoLabel" maxWidth="Infinity" style="-fx-font-size:12; -fx-text-fill:#4B2E2E;" text="" wrapText="true" />
+    </VBox>
+
+
+
+
+    <Label fx:id="messageLabel" style="-fx-text-fill:#8B0000; -fx-font-size:12;" text="" />
+
+    <Region maxHeight="40" prefHeight="40" VBox.vgrow="ALWAYS" />
+
+    <Button fx:id="deleteBtn" maxWidth="Infinity" onAction="#onDeleteClick" style="-fx-background-color:#8B0000; -fx-text-fill:white; -fx-font-weight:bold; -fx-font-size:13; -fx-background-radius:8; -fx-border-radius:8; -fx-pref-width:Infinity; -fx-pref-height:40; -fx-cursor:hand;" text="Delete Transaction" />
+
+    <Button fx:id="backBtn" maxWidth="Infinity" onAction="#onBackClick" style="-fx-background-color:transparent; -fx-text-fill:#8B4513; -fx-font-weight:bold; -fx-font-size:13; -fx-border-color:#A0522D; -fx-border-radius:8; -fx-background-radius:8; -fx-pref-height:40; -fx-cursor:hand;" text="Cancel" />
+
+</VBox>
