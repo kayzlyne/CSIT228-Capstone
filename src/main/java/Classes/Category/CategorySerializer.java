@@ -1,37 +1,34 @@
 package Classes.Category;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class CategorySerializer {
 
-    public static void save(Category category,
-                            String fileName)
-            throws Exception {
+    private static final String FILE_NAME = "category.dat";
 
-        ObjectOutputStream out =
-                new ObjectOutputStream(
-                        new FileOutputStream(fileName));
+    public static void save(Category category) throws IOException {
 
-        out.writeObject(category);
+        try (ObjectOutputStream out =
+                     new ObjectOutputStream(
+                             new FileOutputStream(FILE_NAME))) {
 
-        out.close();
+            out.writeObject(category);
+        }
     }
 
-    public static Category load(String fileName)
-            throws Exception {
+    public static Category load() throws IOException, ClassNotFoundException {
 
-        ObjectInputStream in =
-                new ObjectInputStream(
-                        new FileInputStream(fileName));
+        File file = new File(FILE_NAME);
 
-        Category category =
-                (Category) in.readObject();
+        if (!file.exists()) {
+            return null;
+        }
 
-        in.close();
+        try (ObjectInputStream in =
+                     new ObjectInputStream(
+                             new FileInputStream(FILE_NAME))) {
 
-        return category;
+            return (Category) in.readObject();
+        }
     }
 }
