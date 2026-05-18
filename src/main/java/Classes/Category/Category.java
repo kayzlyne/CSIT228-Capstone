@@ -10,10 +10,10 @@ public class Category implements Serializable {
     private String name;
     private String description;
 
-    public Category(int categoryId,
-                    String name,
-                    String description) {
+    public Category() {
+    }
 
+    public Category(int categoryId, String name, String description) {
         this.categoryId = categoryId;
         this.name = name;
         this.description = description;
@@ -43,10 +43,15 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public void editCategory(String newName,
-                             String newDescription) {
-
+    public void editCategory(String newName, String newDescription) {
         this.name = newName;
         this.description = newDescription;
+    }
+
+    @Override
+    public String toString() {
+        return "Category ID: " + categoryId +
+                "\nName: " + name +
+                "\nDescription: " + description;
     }
 }
